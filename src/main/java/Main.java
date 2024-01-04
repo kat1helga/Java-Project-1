@@ -9,7 +9,11 @@ public class Main {
 
         Product product = new Product();
         double totalSum = product.requestProducts();
+        double totalSumForEach = totalSum/quantityOfPeopleToPrint;
 
-        System.out.println("Каждому нужно заплатить по: " + String.format("%.2f", totalSum/quantityOfPeopleToPrint));
+        Formatter formatter = new Formatter();
+        String totalCurrencyName = formatter.formatCurrencyName(totalSumForEach);
+
+        System.out.println("Каждому нужно заплатить по: " + String.format("%.2f ", totalSumForEach) + totalCurrencyName);
    }
 }
